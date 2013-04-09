@@ -101,14 +101,6 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf \
     $(COMMON_PATH)/config/audio_effects.conf:system/etc/audio_effects.conf
 
-# GPS
-PRODUCT_PACKAGES += \
-    libloc_adapter \
-    libloc_eng \
-    libloc_api_v02 \
-    libgps.utils \
-    gps.msm8960
-
 # Light
 PRODUCT_PACKAGES += \
     lights.msm8960
@@ -156,6 +148,9 @@ PRODUCT_COPY_FILES += \
 # Post recovery script
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/init.recovery.qcom.rc:root/init.recovery.qcom.rc
 
 # Additional sbin stuff
 PRODUCT_COPY_FILES += \
@@ -228,7 +223,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.call_ring.multiple=0
+    ro.telephony.call_ring.multiple=0 \
+    telephony.lteOnGsmDevice=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.recordable.rgba8888=1
