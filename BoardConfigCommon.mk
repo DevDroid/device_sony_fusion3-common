@@ -50,6 +50,9 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE  := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000
 
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_WLAN_DEVICE                := qcwcn
@@ -94,12 +97,13 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
-BOARD_USES_FLUENCE_INCALL := true
-BOARD_USES_SEPERATED_AUDIO_INPUT := true
 
 # FM radio
 BOARD_USES_STE_FMRADIO := true
 COMMON_GLOBAL_CFLAGS += -DSTE_FM
+
+# Camera
+COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
 
 # Kernel time optimization
 KERNEL_HAS_GETTIMEOFDAY_HELPER := true

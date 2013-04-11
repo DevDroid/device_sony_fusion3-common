@@ -24,7 +24,9 @@ DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -230,7 +232,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.recordable.rgba8888=1
 
 # Include non-opensource parts if available
-$(call inherit-product-if-exists, vendor/sony/qcom-common/common-vendor.mk)
-
-# Include non-opensource parts if available
-$(call inherit-product-if-exists, vendor/sony/fusion3-common/common-vendor.mk)
+$(call inherit-product-if-exists, vendor/sony/fusion3-common/fusion3-common-vendor.mk)
