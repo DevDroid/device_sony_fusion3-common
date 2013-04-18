@@ -81,7 +81,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Custom boot
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/fusion3-common/custombootimg.mk
 TARGET_RELEASETOOLS_EXTENSIONS := device/sony/fusion3-common
 BOARD_CUSTOM_GRAPHICS := ../../../device/sony/fusion3-common/recovery/graphics.c
@@ -94,6 +93,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
+BOARD_AUDIO_CAF_LEGACY_INPUT_BUFFERSIZE := true
 
 # FM radio
 BOARD_USES_STE_FMRADIO := true
